@@ -1,5 +1,6 @@
 package br.edu.utfpr.pb.aula2;
 
+import java.time.LocalDate;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,12 +10,16 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import br.edu.utfpr.pb.aula2.model.Categoria;
 import br.edu.utfpr.pb.aula2.repository.CategoriaRepository;
+import br.edu.utfpr.pb.aula2.repository.ProdutoRepository;
 
 @SpringBootApplication
 public class Aula2Runner implements CommandLineRunner{
 
 	@Autowired
 	private CategoriaRepository categoriaRepository;
+	
+	@Autowired
+	private ProdutoRepository produtoRepository;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(Aula2Runner.class, args);
@@ -27,6 +32,23 @@ public class Aula2Runner implements CommandLineRunner{
 		listarTodasCategorias();
 		listarTodasCategoriasDescricaoLike();
 		
+		listarProdutosNomeLike();
+		
+		listarProdutosDataLancamentoBetween();
+	}
+
+	private void listarProdutosDataLancamentoBetween() {
+		produtoRepository.findByDataLancamentoBetween(
+				LocalDate.of(2010, 1, 1), 
+				LocalDate.of(2015,12, 31))
+			.forEach( p -> System.out.println(p));
+		
+	}
+
+	private void listarProdutosNomeLike() {
+		produtoRepository
+			.findByNomeLikeOrderByNomeDesc("%ou%")
+				.forEach(p -> System.out.println(p));
 		
 	}
 
