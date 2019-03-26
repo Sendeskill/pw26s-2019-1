@@ -55,5 +55,8 @@ public class Serie {
 	@JoinColumn(name = "genero_id", 
 			referencedColumnName = "id")
 	private Genero genero;
+	
+	@Column(name = "imagem", length = 1024, nullable = false)
+	private String imagem;
 }
 
