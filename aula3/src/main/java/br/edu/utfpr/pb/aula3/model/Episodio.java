@@ -15,6 +15,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import br.edu.utfpr.pb.aula3.converter.BooleanConverter;
 //import br.edu.utfpr.pb.springrest.converter.BooleanConverter;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -59,7 +60,7 @@ public class Episodio implements Serializable {
     @JoinColumn(name = "serie_id", nullable = false, referencedColumnName = "id")
     private Serie serie;
 
-    //@Convert(converter = BooleanConverter.class)
+    @Convert(converter = BooleanConverter.class)
     @Column(columnDefinition = "char(1) default 'V'")
     private Boolean ativo;
 }
