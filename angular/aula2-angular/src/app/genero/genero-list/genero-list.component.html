@@ -1,0 +1,17 @@
+<h1 class="mt-5">Lista de Gêneros</h1>
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let genero of generos">
+        <td>{{genero.id}}</td>
+        <td>{{genero.nome}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
