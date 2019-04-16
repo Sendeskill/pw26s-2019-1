@@ -10,6 +10,7 @@ import { GeneroFormComponent } from './genero/genero-form/genero-form.component'
 import { GeneroService } from './genero/genero.service';
 import { HttpClientModule } from '@angular/common/http';
 
+import {FormsModule} from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     GeneroService

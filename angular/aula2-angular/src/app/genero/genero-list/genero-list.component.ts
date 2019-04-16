@@ -20,4 +20,10 @@ export class GeneroListComponent implements OnInit {
   findAll() {
     this.generoService.findAll().subscribe( e => this.generos = e);
   }
+
+  delete(id: number) {
+    this.generoService.delete(id).subscribe( () => {
+      this.findAll();
+    });
+  }
 }
