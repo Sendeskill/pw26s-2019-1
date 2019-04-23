@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
 export class GeneroService extends CrudService<Genero, number> {
 
   constructor(http: HttpClient) {
-    super(environment.api, http);
+    super(environment.api + '/genero', http);
   }
 
 }
