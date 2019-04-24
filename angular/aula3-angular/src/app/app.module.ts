@@ -18,13 +18,23 @@ import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {GrowlModule} from 'primeng/growl';
 import {DialogModule} from 'primeng/dialog';
 import {ConfirmationService} from 'primeng/api';
+import { ProdutoraComponent } from './produtora/produtora.component';
+import { ProdutoraService } from './produtora/produtora.service';
+import { SerieComponent } from './serie/serie.component';
+import { SerieService } from './serie/serie.service';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+library.add(fas);
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
     PrincipalComponent,
-    GeneroComponent
+    GeneroComponent,
+    ProdutoraComponent,
+    SerieComponent
   ],
   imports: [
     BrowserModule,
@@ -36,11 +46,14 @@ import {ConfirmationService} from 'primeng/api';
     TableModule,
     ConfirmDialogModule,
     GrowlModule,
-    DialogModule
+    DialogModule,
+    FontAwesomeModule
   ],
   providers: [
     GeneroService,
-    ConfirmationService
+    ConfirmationService,
+    ProdutoraService,
+    SerieService
   ],
   bootstrap: [AppComponent]
 })

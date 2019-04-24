@@ -1,8 +1,9 @@
 <div class="container">
-  <h1 class="d-flex">Cadastro de Gêneros</h1>
+  <h1 class="d-flex">Cadastro de Produtoras</h1>
   <button class="btn btn-primary" (click)="newEntity()"> Novo</button>
 
-  <p-table [value]="generos" [paginator]="true" [rows]="5">
+  <p-table [value]="produtoras" [paginator]="true" [rows]="5"
+    [rowsPerPageOptions]="[5,10,20]">
     <ng-template pTemplate="header">
       <tr>
         <th>Código</th>
@@ -10,10 +11,10 @@
         <th>Ações</th>
       </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-genero>
+    <ng-template pTemplate="body" let-produtora>
       <tr>
-        <td>{{genero.id}}</td>
-        <td>{{genero.nome}}</td>
+        <td>{{produtora.id}}</td>
+        <td>{{produtora.nome}}</td>
         <td>
           <button type="button" class="btn btn-dark" (click)="edit(serie)">
             <fa-icon [icon]="['fas','edit']"></fa-icon>
@@ -29,21 +30,21 @@
 
   <p-confirmDialog></p-confirmDialog>
   <p-growl [(value)]="msgs"></p-growl>
-
   <p-dialog header="Cadastro" [(visible)]="showDialog" modal="modal"
-    [responsive]="true" [width]="500">
-    <div class="row">
-      <div class="col-sm-12">
-        <div class="form-group">
-          <label for="nome">Nome</label>
-          <input type="text" id="nome" name="nome" class="form-control" 
-            [(ngModel)]="generoEdit.nome">
-        </div>
+  [responsive]="true" [width]="500">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group">
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" name="nome" class="form-control" 
+          [(ngModel)]="produtoraEdit.nome">
       </div>
     </div>
-    <p-footer>
-      <button type="button" class="btn btn-default" (click)="cancel()">Cancelar</button>
-      <button type="button" class="btn btn-success" (click)="save()">Salvar</button>
-    </p-footer>
-  </p-dialog>
+  </div>
+  <p-footer>
+    <button type="button" class="btn btn-default" (click)="cancel()">Cancelar</button>
+    <button type="button" class="btn btn-success" (click)="save()">Salvar</button>
+  </p-footer>
+</p-dialog>
+  
 </div>
